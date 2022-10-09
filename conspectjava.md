@@ -26,6 +26,12 @@ public static void main(String[] args) {
 
     //for loop = executes a block of code a limited amount of times 
 
+## 14.nested loops
+
+    nested loops - it`s a loop inside of a loop
+
+
+
 ## 22.methods
 
     //method - is a block of code that is executed whenever it`s called upon
