@@ -21,13 +21,12 @@ public class Order {
         this.startTime = startTime;
     }
 
-    public String getOrderID(){
-        return orderID;
-    }
 
     @Override
     public String toString() {
-        return this.dishesQuantity + this.guestsQuantity + this.orderID + this.cost +
-                this.date + this.orderAddress + this.orderType + this.startTime;
+        return "\n" + "Order: " + this.orderID + "\n" + "Cost: " + this.cost + "\n" + "Date: " + this.date
+                + this.orderType + "\n" + "Start Time: " + this.startTime + "\n" + "Order Address: "
+                + this.orderAddress  + "\n" + "Dishes: " + this.dishesQuantity
+                + "\n" + "Guests: " + this.guestsQuantity+ "\n";
     }
 }

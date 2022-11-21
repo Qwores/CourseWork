@@ -9,16 +9,10 @@ public class Client extends User {
         this.clientAddress = clientAddress;
     }
 
-    public String getClientName(){
-        return this.userName;
-    }
-
-    public int getClientOrderID(){
-        return this.clientOrderID;
-    }
-
     @Override
     public String toString() {
-        return this.userName + this.clientOrderID + this.phoneNumber + this.clientAddress;
+        return "\n" + "Client: " + this.userName + "\n" + "Order ID: " + this.clientOrderID
+                + "\n" + "Phone number: " + this.phoneNumber +  "\n"
+                + "Address: " + this.clientAddress + "\n";
     }
 }

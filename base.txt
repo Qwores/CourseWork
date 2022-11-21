@@ -8,5 +8,5 @@ Admin@Kateryna Li@+380672369355@Hall #3
 Order@15@13@12487@2536@31.03.2022@Derybasivska Street 12@banquet@16:40
 Order@30@22@16547@6800@25.06.2022@Derybasivska Street 12@banquet@19:00
 Order@24@17@14533@5600@10.11.2022@Bankova Street 25@delivery@21:30
-Order@26@34@19631@7000@10.11.2022@Brovarskyi prospect 76@delivery@22:00
+Order@26@34@19631@7000@10.11.2022@Brovarskyi prospect 76@delivery@19:00
 

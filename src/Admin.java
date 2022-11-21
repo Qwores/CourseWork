@@ -9,6 +9,7 @@ public class Admin extends User{
 
     @Override
     public String toString() {
-        return this.userName + this.phoneNumber + this.hallName;
+        return "\n" + "Admin: " + this.userName + "\n" + "Phone number: " + this.phoneNumber
+                + "\n" + "Hall name: " + this.hallName + "\n";
     }
 }

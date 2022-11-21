@@ -21,11 +21,11 @@ public class Main {
                 switch (findFile[0]){
                     case "Client":
                         Client obj1 = new Client(Integer.parseInt(findFile[1]), findFile[2], findFile[3], findFile[3]);
-                        clients.add(obj1); // this
+                        clients.add(obj1);
                         break;
                     case "Admin":
                         Admin obj2 = new Admin(findFile[1], findFile[2], findFile[3]);
-                        admins.add(obj2); // this
+                        admins.add(obj2);
                         break;
                     case "Order":
                         Order obj3 = new Order(Integer.parseInt(findFile[1]), Integer.parseInt(findFile[2]),
@@ -43,6 +43,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         String scanner;
+        String date;
 
         System.out.println("1.Список замовлень з … по….");
         System.out.println("2.Список клієнтів.");
@@ -55,24 +56,25 @@ public class Main {
             System.out.println("Choose operation <1>, <2>, <3>, <4>, <5>, <6> or <q> to quit");
             scanner = sc.nextLine();
             if(scanner.equals("1")){
-                System.out.println(orders); // хуйня переделать
+                System.out.println("Input date in dd.mm.yyyy format");
+
             }
             else if(scanner.equals("2")){
                 System.out.println(clients);
+                System.out.println("-----------------------");
                 System.out.println(orders);
-                System.out.println(admins);
             }
             else if(scanner.equals("3")){
-                System.out.println("Task 3");
+                System.out.println("Найбільш популярний тип замовлення: ");
             }
             else if(scanner.equals("4")){
-                System.out.println("Task 4");
+                System.out.println("Середня кількість страв: ");
             }
             else if(scanner.equals("5")){
-                System.out.println("Task 5");
+                System.out.println("Найбільша вартість банкету: ");
             }
             else if(scanner.equals("6")){
-                System.out.println("Task 6");
+                System.out.println("Найбільш популярний час початку: ");
             }
             else {
                 if (! scanner.equals("q") && !  scanner.equals("Q")){
@@ -81,7 +83,5 @@ public class Main {
             }
         } while (! scanner.equals("q") && !  scanner.equals("Q"));
         System.out.println("done");
-
-
     }
 }
