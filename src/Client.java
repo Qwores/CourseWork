@@ -1,30 +1,24 @@
-public class Client {
+public class Client extends User {
 
     int clientOrderID;
     String clientAddress;
-    String clientName;
-    String clientPhoneNumber;
 
-    //constructor
     public Client(int clientOrderID, String clientAddress, String clientName, String clientPhoneNumber) {
+        super(clientName, clientPhoneNumber);
         this.clientOrderID = clientOrderID;
         this.clientAddress = clientAddress;
-        this.clientName = clientName;
-        this.clientPhoneNumber = clientPhoneNumber;
     }
 
-    //output ArrayList
     public String getClientName(){
-        return clientName;
+        return this.userName;
     }
 
     public int getClientOrderID(){
-        return clientOrderID;
+        return this.clientOrderID;
     }
 
     @Override
     public String toString() {
-        //return clientName;
-        return this.clientName + this.clientOrderID;
+        return this.userName + this.clientOrderID + this.phoneNumber + this.clientAddress;
     }
 }

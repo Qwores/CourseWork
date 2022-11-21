@@ -67,6 +67,12 @@ local variables and global
     //global - declared outside a method, but within a class
     //      visible to all parts of class      
 
+## 33.static keyword
+
+    // static - modifier, A single copy of a variable/method is created and shared. The class "owns"
+
+
+
 ## 46.FileWriter(write to a file)
 
 import java.io.FileWriter;

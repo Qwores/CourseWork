@@ -1,18 +1,15 @@
-import java.util.Date;
-
 public class Order {
 
     int dishesQuantity;
     int guestsQuantity;
-    String orderID; //был int
-    Double cost;
+    String orderID;
+    int cost;
     String date;
     String orderAddress;
     String orderType;
     String startTime;
 
-    //constructor
-    Order(int dishesQuantity, int guestsQuantity, String orderID, Double cost, String date,
+    Order(int dishesQuantity, int guestsQuantity, String orderID, int cost, String date,
           String orderAddress, String orderType, String startTime) {
         this.dishesQuantity = dishesQuantity;
         this.guestsQuantity = guestsQuantity;
@@ -30,6 +27,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return orderID;
+        return this.dishesQuantity + this.guestsQuantity + this.orderID + this.cost +
+                this.date + this.orderAddress + this.orderType + this.startTime;
     }
 }

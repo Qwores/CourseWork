@@ -1,45 +1,45 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        // Make Client data-type objects
-        Client c1 = new Client(3165, "blah street", "Vitaliy Kirieshkin", "+380680987375");
-        Client c2 = new Client(3124, "idiot street", "Oleksii", "+380482347375");
-        Client c3 = new Client(3165, "blah street", "Zhekich", "+380232347332");
-        Client c4 = new Client(3435, "blah street", "Vova", "+384333347344");
-
-        Order o1 = new Order(12, 25, "12412", 1430.11, "14.05.2022",
-                "blahs street", "banquet", "14:00");
-        Order o2 = new Order(12, 25, "12412", 1220.54, "15.05.2022",
-                "blahblah street", "banquet", "14:00");
-        Order o3 = new Order(12, 25, "12412", 1430.43, "16.06.2022",
-                "blahblah street", "banquet", "14:00");
-        Order o4 = new Order(12, 25, "12412", 11540.03, "17.08.2022",
-                "blah street", "banquet", "14:00");
-
-
-        //Declare arrays
-        ArrayList  <Client> names = new ArrayList<>();
+        ArrayList  <Client> clients = new ArrayList<>();
         ArrayList  <Order> orders = new ArrayList<>();
+        ArrayList  <Admin> admins = new ArrayList<>();
 
-        //adding objects to ArrayList
-        names.add(c1);
-        names.add(c2);
-        names.add(c3);
-        names.add(c4);
+        //file reader
+        try {
+            File database = new File("base.txt");
+            Scanner scan = new Scanner(database);
+            while (scan.hasNextLine()){
+                String data = scan.nextLine();
+                String[] findFile = data.split("@");
 
-        orders.add(o1);
-        orders.add(o2);
-        orders.add(o3);
-        orders.add(o4);
+                switch (findFile[0]){
+                    case "Client":
+                        Client obj1 = new Client(Integer.parseInt(findFile[1]), findFile[2], findFile[3], findFile[3]);
+                        clients.add(obj1); // this
+                        break;
+                    case "Admin":
+                        Admin obj2 = new Admin(findFile[1], findFile[2], findFile[3]);
+                        admins.add(obj2); // this
+                        break;
+                    case "Order":
+                        Order obj3 = new Order(Integer.parseInt(findFile[1]), Integer.parseInt(findFile[2]),
+                                findFile[3], Integer.parseInt(findFile[4]), findFile[5], findFile[6], findFile[7], findFile[8]);
+                        orders.add(obj3);
+                        break;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
-        // Print and display the elements of adobe ArrayList
-        // using get() method
-        //System.out.println(names.get(0).clientName);
-
-        //console module
+        //console
         Scanner sc = new Scanner(System.in);
 
         String scanner;
@@ -55,10 +55,12 @@ public class Main {
             System.out.println("Choose operation <1>, <2>, <3>, <4>, <5>, <6> or <q> to quit");
             scanner = sc.nextLine();
             if(scanner.equals("1")){
-                System.out.println(orders);
+                System.out.println(orders); // хуйня переделать
             }
             else if(scanner.equals("2")){
-                System.out.println(names); //output names
+                System.out.println(clients);
+                System.out.println(orders);
+                System.out.println(admins);
             }
             else if(scanner.equals("3")){
                 System.out.println("Task 3");
@@ -72,14 +74,12 @@ public class Main {
             else if(scanner.equals("6")){
                 System.out.println("Task 6");
             }
-            else {  //edit to look better
-                if (! scanner.equals("1") && ! scanner.equals("2")
-                        && ! scanner.equals("3") && ! scanner.equals("4")
-                        && ! scanner.equals("5") && ! scanner.equals("6") && ! scanner.equals("q")){
+            else {
+                if (! scanner.equals("q") && !  scanner.equals("Q")){
                     System.out.println("ERROR");
                 }
             }
-        } while (! scanner.equals("q"));
+        } while (! scanner.equals("q") && !  scanner.equals("Q"));
         System.out.println("done");
 
 
