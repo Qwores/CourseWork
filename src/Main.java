@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -42,8 +39,6 @@ public class Main {
             e.printStackTrace();
         }
 
-        Scanner scDate = new Scanner(System.in);
-
         //console
         Scanner sc = new Scanner(System.in);
 
@@ -60,33 +55,21 @@ public class Main {
             System.out.println("Choose operation <1>, <2>, <3>, <4>, <5>, <6> or <q> to quit");
             scanner = sc.nextLine();
             if(scanner.equals("1")){
-
-                int[] date1 = new int[] {0, 0, 0} ;
-
-                String date2;
-                System.out.println("Input date in dd.mm.yyyy format");
-                date1[1] = scDate.nextInt();
-
-
-
-
-                getDate();
+                orderList();
             }
             else if(scanner.equals("2")){
-                System.out.println(clients);
-                System.out.println("-----------------------");
-                System.out.println(orders);
+                clientList();
             }
             else if(scanner.equals("3")){
                 mostPopularType();
             }
             else if(scanner.equals("4")){
                 System.out.println("Середня кількість страв: ");
-                averageDishes();
+                averageDishesQuantity();
             }
             else if(scanner.equals("5")){
                 System.out.println("Найбільша вартість банкету: ");
-                maxCost();
+                mostExpensive();
             }
             else if(scanner.equals("6")){
                 mostPopularTime();
@@ -100,7 +83,7 @@ public class Main {
         System.out.println("done");
     }
 
-    static public void averageDishes(){
+    static public void averageDishesQuantity(){
         int amountSum = 0;
         for (Order order: orders){
             amountSum += orders.size();
@@ -116,7 +99,7 @@ public class Main {
         System.out.println(average);
     }
 
-    static public void maxCost(){
+    static public void mostExpensive(){
         int max = 0;
         for (Order order: orders){
             int price = order.cost;
@@ -171,9 +154,32 @@ public class Main {
         else System.out.println("Нема замовлень");
     }
 
-    static public void  getDate(){
+    static public void  orderList(){
 
+        Scanner scDate = new Scanner(System.in);
+
+        int[] date1 = new int[] {0, 0, 0};
+        int[] date2 = new int[] {0, 0, 0};
+
+        System.out.println("Input date in dd.mm.yyyy format");
+        System.out.println("Input first date: ");
+        date1[0] = scDate.nextInt();
+        date1[1] = scDate.nextInt();
+        date1[2] = scDate.nextInt();
+        System.out.println(Arrays.toString(date1));
+
+        System.out.println("Input second date: ");
+        date2[0] = scDate.nextInt();
+        date2[1] = scDate.nextInt();
+        date2[2] = scDate.nextInt();
+        System.out.println(Arrays.toString(date2));
+
+        System.out.println("Список замовлень з: " + Arrays.toString(date1) + "по: " + Arrays.toString(date2));
     }
 
-
+    static public void clientList(){
+        System.out.println(clients);
+        System.out.println("-----------------------");
+        System.out.println(orders);
+    }
 }
