@@ -107,7 +107,7 @@ public class Main {
                 max = price;
             }
         }
-        System.out.println(max);
+        System.out.println(max + " грн");
     }
 
     static public void mostPopularType(){
